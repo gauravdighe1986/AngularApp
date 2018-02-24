@@ -18,9 +18,16 @@ export class CoursesComponent {
     title2 = "Courses we offer";
     courses;
 
-    // Below is tightly coupled and changes in CoursesService construtor, it will break
-    constructor() {
-        let coursesService = new CoursesService();
+    // TIGHTLY COUPLED, ANY CHANGES TO SERVICE CONSTRUCTOR WILL BREAK THE APPLICATION
+    // constructor() {
+    //     let coursesService = new CoursesService();
+    //     this.courses = coursesService.getCourses();
+    // }
+
+    // DEPENDECY INJECTION
+    // LOOSELY COUPLED, ANY CHANGES TO SERVICE CONSTRUCTOR WILL BE APPLIED @RUNTIME
+    // REMEMBER - REGISTER SERVICE AS PROVIDER IN MODULE
+    constructor(coursesService: CoursesService) {
         this.courses = coursesService.getCourses();
     }
 
