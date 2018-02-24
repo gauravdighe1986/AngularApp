@@ -18,6 +18,7 @@ export class CoursesComponent {
     title2 = "Courses we offer";
     courses;
 
+    // Below is tightly coupled and changes in CoursesService construtor, it will break
     constructor() {
         let coursesService = new CoursesService();
         this.courses = coursesService.getCourses();
