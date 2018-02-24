@@ -11,10 +11,11 @@ import { CoursesService } from "./courses.service";
                 {{course}}
             </li>
         </ul>
-        <button class="btn btn-primary">Bootstrap Button</button>
+        <button class="btn btn-primary" [class.active]="isActive">Bootstrap Button</button>
         `
 })
 export class CoursesComponent {
+    isActive = true;
     title = "Training Center";
     title2 = "Courses we offer";
     courses;
