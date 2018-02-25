@@ -22,6 +22,10 @@ import { CoursesService } from "./courses.service";
             <button class="btn btn-primary" (click)="onSave($event)">Event Bubbling</button>
         </div>
 
+        <!-- EVENT FILTERING -->
+        <br><br>
+        <input (keyup.enter)="onKeyUp()" />
+
         <br><br>
 
         <!--PROPERTY BINDING - ITS ONE WAY FROM COMPONENT TO DOM. NOT TO USE WITH INPUT-->
@@ -31,6 +35,7 @@ import { CoursesService } from "./courses.service";
         <br><br>
         <!-- STYLE BINDING -->
         <div [style.backgroundColor]="isActive ? 'pink' : 'white'" >Style Binding</div>
+
 
 
         `
@@ -68,6 +73,10 @@ export class CoursesComponent {
 
     onDivClicked() {
         console.log("DIV Clicked !");
+    }
+
+    onKeyUp() {
+        console.log("ENTER was pressed");
     }
 
 }
