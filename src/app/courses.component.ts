@@ -11,6 +11,8 @@ import { CoursesService } from "./courses.service";
                 {{course}}
             </li>
         </ul>
+
+        <!-- CLASS BINDING -->
         <button class="btn btn-primary" [class.active]="isActive">Bootstrap Button</button>
 
         <br><br>
