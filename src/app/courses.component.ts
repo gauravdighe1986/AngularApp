@@ -12,6 +12,12 @@ import { CoursesService } from "./courses.service";
             </li>
         </ul>
         <button class="btn btn-primary" [class.active]="isActive">Bootstrap Button</button>
+
+        <br><br>
+
+        <!--PROPERTY BINDING - ITS ONE WAY FROM COMPONENT TO DOM. NOT TO USE WITH INPUT-->
+        <img src="{{imageLink1}}" />
+        <img [src]="imageLink2"/>
         `
 })
 export class CoursesComponent {
@@ -19,6 +25,10 @@ export class CoursesComponent {
     title = "Training Center";
     title2 = "Courses we offer";
     courses;
+
+    // PROPERTY BINDING - ITS ONE WAY FROM COMPONENT TO DOM
+    imageLink1 = `http://media.santabanta.com/medium1/hinduism/lord%20hanuman/lord-hanuman-26a.jpg`;
+    imageLink2 = `http://media.santabanta.com/medium1/hinduism/lord%20shiva/lord-shiva-84a.jpg`;
 
     // TIGHTLY COUPLED, ANY CHANGES TO SERVICE CONSTRUCTOR WILL BREAK THE APPLICATION
     // constructor() {
