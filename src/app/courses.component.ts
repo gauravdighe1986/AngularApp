@@ -12,8 +12,15 @@ import { CoursesService } from "./courses.service";
             </li>
         </ul>
 
-        <!-- CLASS BINDING -->
-        <button class="btn btn-primary" [class.active]="isActive">Bootstrap Button</button>
+        <!-- CLASS BINDING and EVENT BINDING onSave($event) -->
+        <button class="btn btn-primary" [class.active]="isActive" (click)="onSave($event)">Bootstrap Button</button>
+
+        <br><br>
+
+        <!-- EVENT BUBBLING from child to parent-->
+        <div (click)="onDivClicked()">
+            <button class="btn btn-primary" (click)="onSave($event)">Event Bubbling</button>
+        </div>
 
         <br><br>
 
@@ -24,6 +31,8 @@ import { CoursesService } from "./courses.service";
         <br><br>
         <!-- STYLE BINDING -->
         <div [style.backgroundColor]="isActive ? 'pink' : 'white'" >Style Binding</div>
+
+
         `
 })
 export class CoursesComponent {
@@ -51,6 +60,14 @@ export class CoursesComponent {
 
     getTitle2() {
         return this.title2;
+    }
+
+    onSave($event) {
+        console.log("Button Clicked: " + $event)
+    }
+
+    onDivClicked() {
+        console.log("DIV Clicked !");
     }
 
 }
