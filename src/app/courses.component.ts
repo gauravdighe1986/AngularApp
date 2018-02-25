@@ -20,6 +20,10 @@ import { CoursesService } from "./courses.service";
         <!--PROPERTY BINDING - ITS ONE WAY FROM COMPONENT TO DOM. NOT TO USE WITH INPUT-->
         <img src="{{imageLink1}}" />
         <img [src]="imageLink2"/>
+
+        <br><br>
+        <!-- STYLE BINDING -->
+        <div [style.backgroundColor]="isActive ? 'pink' : 'white'" >Style Binding</div>
         `
 })
 export class CoursesComponent {
