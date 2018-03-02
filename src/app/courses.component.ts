@@ -24,7 +24,11 @@ import { CoursesService } from "./courses.service";
 
         <!-- EVENT FILTERING -->
         <br><br>
-        <input (keyup.enter)="onKeyUp()" />
+        Event Filtering: <input (keyup.enter)="onKeyUp()" />
+
+        <!-- TEMPLATE VARIABLE -->
+        <br><br>
+       Template Variable: <input type='text' #name (keyup.enter)=onKeyUpName(name.value)/>
 
         <br><br>
 
@@ -77,6 +81,10 @@ export class CoursesComponent {
 
     onKeyUp() {
         console.log("ENTER was pressed");
+    }
+
+    onKeyUpName(name){
+        console.log(name);
     }
 
 }
