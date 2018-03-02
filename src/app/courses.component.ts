@@ -28,10 +28,13 @@ import { CoursesService } from "./courses.service";
 
         <!-- TEMPLATE VARIABLE -->
         <br><br>
-       Template Variable: <input type='text' #name (keyup.enter)=onKeyUpName(name.value)/>
+        Template Variable: <input type='text' #name (keyup.enter)=onKeyUpName(name.value)/>
+
+        <!-- 2 WAY BINDING. import FORMSMODULE IN app.module.ts -->
+        <br><br>
+        Two Way Binding: <input [(ngModel)]="city" (keyup.enter)=onKeyUpCity() />
 
         <br><br>
-
         <!--PROPERTY BINDING - ITS ONE WAY FROM COMPONENT TO DOM. NOT TO USE WITH INPUT-->
         <img src="{{imageLink1}}" />
         <img [src]="imageLink2"/>
@@ -40,8 +43,6 @@ import { CoursesService } from "./courses.service";
         <!-- STYLE BINDING -->
         <div [style.backgroundColor]="isActive ? 'pink' : 'white'" >Style Binding</div>
 
-
-
         `
 })
 export class CoursesComponent {
@@ -49,6 +50,9 @@ export class CoursesComponent {
     title = "Training Center";
     title2 = "Courses we offer";
     courses;
+
+    // TWO WAY BINDING
+    city = "Dombivli";
 
     // PROPERTY BINDING - ITS ONE WAY FROM COMPONENT TO DOM
     imageLink1 = `http://media.santabanta.com/medium1/hinduism/lord%20hanuman/lord-hanuman-26a.jpg`;
@@ -83,8 +87,13 @@ export class CoursesComponent {
         console.log("ENTER was pressed");
     }
 
-    onKeyUpName(name){
+    onKeyUpName(name) {
         console.log(name);
+    }
+
+    // 2 WAY BINDING. import FORMSMODULE IN app.module.ts
+    onKeyUpCity() {
+        console.log(this.city);
     }
 
 }
