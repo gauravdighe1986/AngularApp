@@ -35,6 +35,10 @@ import { CoursesService } from "./courses.service";
         Two Way Binding: <input [(ngModel)]="city" (keyup.enter)=onKeyUpCity() />
 
         <br><br>
+        <!-- Custom Pipes -->
+        {{text | summary:100}}
+
+        <br><br>
         <!--PROPERTY BINDING - ITS ONE WAY FROM COMPONENT TO DOM. NOT TO USE WITH INPUT-->
         <img src="{{imageLink1}}" />
         <img [src]="imageLink2"/>
@@ -53,6 +57,9 @@ export class CoursesComponent {
 
     // TWO WAY BINDING
     city = "Dombivli";
+
+    // CUSTOM PIPES
+    text = 'AngularJS (commonly referred to as "Angular.js" or "AngularJS 1.X") is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications. The JavaScript components complement Apache Cordova, the framework used for developing cross-platform mobile apps. It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model–view–viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications. In 2014, the original AngularJS team began working on Angular (Application Platform).';
 
     // PROPERTY BINDING - ITS ONE WAY FROM COMPONENT TO DOM
     imageLink1 = `http://media.santabanta.com/medium1/hinduism/lord%20hanuman/lord-hanuman-26a.jpg`;
