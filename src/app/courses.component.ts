@@ -36,7 +36,7 @@ import { CoursesService } from "./courses.service";
 
         <br><br>
         <!-- Custom Pipes -->
-        {{text | summary:100}}
+        Custom Pipes: {{text | summary:100}}
 
         <br><br>
         <!--PROPERTY BINDING - ITS ONE WAY FROM COMPONENT TO DOM. NOT TO USE WITH INPUT-->
