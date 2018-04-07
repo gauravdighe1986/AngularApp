@@ -8,6 +8,7 @@ import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
 import { CoursesService } from './courses.service';
 import { SummaryPipe } from './summary.pipe';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SummaryPipe } from './summary.pipe';
         CoursesComponent,
         CourseComponent,
         SummaryPipe,
-        FavoriteComponent
+        FavoriteComponent,
+        ContactFormComponent
     ],
     imports: [
         BrowserModule,
