@@ -12,5 +12,11 @@
         <label for="comment">Comments</label>
         <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
     </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ngModel name="isSubscribed">Subscribe to mailing list.
+        </label>
+    </div>
     <button class="btn btn-primary">Submit</button>
+    <p>{{f.value | json}}</p>
 </form>
