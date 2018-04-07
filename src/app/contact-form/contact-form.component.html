@@ -17,6 +17,7 @@
             <input type="checkbox" ngModel name="isSubscribed">Subscribe to mailing list.
         </label>
     </div>
-    <button class="btn btn-primary">Submit</button>
+    <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+    <br>
     <p>{{f.value | json}}</p>
 </form>
