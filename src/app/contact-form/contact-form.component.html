@@ -17,7 +17,14 @@
             <input type="checkbox" ngModel name="isSubscribed">Subscribe to mailing list.
         </label>
     </div>
-    <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+    <div class="dropdown">
+        <label for="contactMethod">Contact Method</label>
+        <select required ngModel name="contactMethod" id="contactMethod" class="form-control">
+            <option *ngFor="let contact of contacts" [value]="contact.name">{{contact.name}}</option>
+        </select>
+    </div>
     <br>
+    <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+    <br><br>
     <p>{{f.value | json}}</p>
 </form>
