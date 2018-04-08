@@ -1,7 +1,7 @@
 import { FavoriteComponent } from './favourite/favorite.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -10,6 +10,7 @@ import { CoursesService } from './courses.service';
 import { SummaryPipe } from './summary.pipe';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { CoursesFormComponent } from './courses-form/courses-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 
 @NgModule({
@@ -19,11 +20,13 @@ import { CoursesFormComponent } from './courses-form/courses-form.component';
         SummaryPipe,
         FavoriteComponent,
         ContactFormComponent,
-        CoursesFormComponent
+        CoursesFormComponent,
+        SignupFormComponent
     ],
     imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [
         CoursesService
