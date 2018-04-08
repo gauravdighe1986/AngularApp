@@ -9,16 +9,17 @@ import { CourseComponent } from './course/course.component';
 import { CoursesService } from './courses.service';
 import { SummaryPipe } from './summary.pipe';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { CoursesFormComponent } from './courses-form/courses-form.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        CoursesComponent,
         CourseComponent,
         SummaryPipe,
         FavoriteComponent,
-        ContactFormComponent
+        ContactFormComponent,
+        CoursesFormComponent
     ],
     imports: [
         BrowserModule,
