@@ -29,4 +29,20 @@ export class SignupFormComponent {
     get password() {
         return this.form.get('password');
     }
+
+    login() {
+        if (this.form.get('username').value === "gaurav" &&
+            this.form.get('password').value != "gaurav") {
+            this.form.setErrors({
+                inValidLogin: true
+            });
+        }else{
+            console.log("Login Successful")
+        }
+
+        console.log("Submitted");
+
+    }
+
+
 }
