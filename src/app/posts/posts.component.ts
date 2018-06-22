@@ -21,10 +21,11 @@ export class PostsComponent {
     // Adds a post
     createPost(input: HTMLInputElement) {
         console.log('createPost() called: ' + input.value);
-        let post = { title: input.value };
+        const post = { title: input.value };
 
         this.http.post(this.url, JSON.stringify(post))
             .subscribe(response => {
+                console.log('HTTP STATUS: ' + response.status);
                 console.log(response.json());
                 post['id'] = response.json().id;
                 // this will add the post to the first position of the posts array
@@ -34,6 +35,4 @@ export class PostsComponent {
         input.value = '';
 
     }
-
-
 }
