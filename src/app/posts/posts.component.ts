@@ -6,18 +6,21 @@ import { Http } from '@angular/http';
     templateUrl: './posts.component.html',
     styleUrls: ['./posts.component.css']
 })
-export class PostsComponent {
+export class PostsComponent implements OnInit {
     url = 'http://jsonplaceholder.typicode.com/posts';
     posts: any[];
 
     constructor(private http: Http) {
 
-        http.get(this.url)
+    }
+
+    // Default behaviour will be written here. Here every times a page load http.get is called.
+    ngOnInit() {
+        this.http.get(this.url)
             .subscribe(response => {
                 this.posts = response.json();
             });
     }
-
     // Adds a post
     createPost(input: HTMLInputElement) {
         console.log('createPost() called: ' + input.value);
@@ -35,4 +38,6 @@ export class PostsComponent {
         input.value = '';
 
     }
+
+
 }
