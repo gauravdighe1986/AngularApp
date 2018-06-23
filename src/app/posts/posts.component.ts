@@ -1,5 +1,5 @@
+import { PostService } from './post.service';
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 
 @Component({
     selector: 'posts',
@@ -7,15 +7,15 @@ import { Http } from '@angular/http';
     styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-    url = 'http://jsonplaceholder.typicode.com/posts';
+
     posts: any[];
 
-    constructor(private http: Http) {
+    constructor(private service: PostService) {
     }
 
     // Default behaviour will be written here. Here every times a page load http.get is called.
     ngOnInit() {
-        this.http.get(this.url)
+        this.service.getPosts()
             .subscribe(response => {
                 console.log('HTTP STATUS: ' + response.status);
                 this.posts = response.json();
@@ -27,7 +27,7 @@ export class PostsComponent implements OnInit {
         console.log('createPost() called: ' + input.value);
         const post = { title: input.value };
 
-        this.http.post(this.url, JSON.stringify(post))
+        this.service.createPost(post)
             .subscribe(response => {
                 console.log('HTTP STATUS: ' + response.status);
                 console.log(response.json());
@@ -43,7 +43,7 @@ export class PostsComponent implements OnInit {
     // Update Post
     updatePost(post) {
         console.log('Post called');
-        this.http.put(this.url + '/' + post.id, JSON.stringify(post))
+        this.service.updatePost(post)
             .subscribe(response => {
                 console.log('HTTP STATUS: ' + response.status);
                 console.log(response.json());
@@ -53,7 +53,7 @@ export class PostsComponent implements OnInit {
     // Delete a post
     deletePost(post) {
         console.log('Delete Post called');
-        this.http.delete(this.url + '/' + post.id, JSON.stringify(post))
+        this.service.deletePost(post.id)
             .subscribe(response => {
                 console.log('HTTP STATUS: ' + response.status);
                 let index = this.posts.indexOf(post);

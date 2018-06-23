@@ -1,3 +1,4 @@
+import { PostService } from './posts/post.service';
 import { FavoriteComponent } from './favourite/favorite.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -34,7 +35,8 @@ import { PostsComponent } from './posts/posts.component';
 
     ],
     providers: [
-        CoursesService
+        CoursesService,
+        PostService
     ],
     bootstrap: [AppComponent]
 })
