@@ -21,6 +21,7 @@ export class PostsComponent implements OnInit {
                 this.posts = response.json();
             });
     }
+
     // Adds a post
     createPost(input: HTMLInputElement) {
         console.log('createPost() called: ' + input.value);
@@ -39,6 +40,7 @@ export class PostsComponent implements OnInit {
 
     }
 
+    // Update Post
     updatePost(post) {
         console.log('Post called');
         this.http.put(this.url + '/' + post.id, JSON.stringify(post))
@@ -48,12 +50,15 @@ export class PostsComponent implements OnInit {
             });
     }
 
+    // Delete a post
     deletePost(post) {
         console.log('Delete Post called');
         this.http.delete(this.url + '/' + post.id, JSON.stringify(post))
             .subscribe(response => {
                 console.log('HTTP STATUS: ' + response.status);
-                console.log(response.json())
+                let index = this.posts.indexOf(post);
+                this.posts.splice(index, 1);
+                console.log(response.json());
             });
     }
 
