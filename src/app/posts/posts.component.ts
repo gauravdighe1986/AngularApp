@@ -1,7 +1,9 @@
+import { AppError } from './../app-error';
 import { PostService } from './post.service';
 import { Component, OnInit } from '@angular/core';
 import { error } from 'protractor';
 import { Alert } from 'selenium-webdriver';
+import { NotFoundError } from '../not-found-error';
 
 @Component({
     selector: 'posts',
@@ -67,16 +69,21 @@ export class PostsComponent implements OnInit {
     // Delete a post
     deletePost(post) {
         console.log('Delete Post called');
-        this.service.deletePost(post.id)
+        // this.service.deletePost(post.id)
+        this.service.deletePost(7878)
             .subscribe(
                 response => {
                     console.log('HTTP STATUS: ' + response.status);
                     let index = this.posts.indexOf(post);
                     this.posts.splice(index, 1);
                     console.log(response.json());
-                }, error => {
-                    alert('Unexpected error occured.');
-                    console.log(error);
+                }, (error: Response) => {
+                    if (error.status === 404) {
+                        alert('This post has already been deleted');
+                    } else {
+                        alert('Unexpected error occured.');
+                        console.log(error);
+                    }
                 });
     }
 
