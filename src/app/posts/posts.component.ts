@@ -1,9 +1,8 @@
-import { AppError } from './../app-error';
+import { BadInputError } from '../common/bad-input-error';
+import { AppError } from '../common/app-error';
 import { PostService } from './post.service';
 import { Component, OnInit } from '@angular/core';
-import { error } from 'protractor';
-import { Alert } from 'selenium-webdriver';
-import { NotFoundError } from '../not-found-error';
+import { NotFoundError } from '../common/not-found-error';
 
 @Component({
     selector: 'posts',
@@ -43,9 +42,13 @@ export class PostsComponent implements OnInit {
                     post['id'] = response.json().id;
                     // this will add the post to the first position of the posts array
                     this.posts.splice(0, 0, post);
-                }, error => {
-                    alert('Unexpected error occured.');
-                    console.log(error);
+                }, (error: AppError) => {
+                    if (error instanceof BadInputError) {
+                        // this.form.serErrors(error.originalError);
+                    } else {
+                        alert('Unexpected error occured.');
+                        console.log(error);
+                    }
                 });
 
         input.value = '';
@@ -77,8 +80,8 @@ export class PostsComponent implements OnInit {
                     let index = this.posts.indexOf(post);
                     this.posts.splice(index, 1);
                     console.log(response.json());
-                }, (error: Response) => {
-                    if (error.status === 404) {
+                }, (error: AppError) => {
+                    if (error instanceof NotFoundError) {
                         alert('This post has already been deleted');
                     } else {
                         alert('Unexpected error occured.');
