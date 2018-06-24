@@ -1,5 +1,4 @@
 import { BadInputError } from './../common/bad-input-error';
-
 import { AppError } from '../common/app-error';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';

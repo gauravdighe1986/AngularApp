@@ -1,7 +1,8 @@
+import { GlobalErrorHandler } from './common/global-error-handler';
 import { PostService } from './posts/post.service';
 import { FavoriteComponent } from './favourite/favorite.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -36,7 +37,8 @@ import { PostsComponent } from './posts/posts.component';
     ],
     providers: [
         CoursesService,
-        PostService
+        PostService,
+        { provide: ErrorHandler, useClass: GlobalErrorHandler }
     ],
     bootstrap: [AppComponent]
 })
