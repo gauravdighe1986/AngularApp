@@ -1,3 +1,4 @@
+import { FollowerService } from './followers/follower.service';
 import { GlobalErrorHandler } from './common/global-error-handler';
 import { PostService } from './posts/post.service';
 import { FavoriteComponent } from './favourite/favorite.component';
@@ -15,6 +16,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { CoursesFormComponent } from './courses-form/courses-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { PostsComponent } from './posts/posts.component';
+import { FollowersComponent } from './followers/followers.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { PostsComponent } from './posts/posts.component';
         ContactFormComponent,
         CoursesFormComponent,
         SignupFormComponent,
-        PostsComponent
+        PostsComponent,
+        FollowersComponent
     ],
     imports: [
         BrowserModule,
@@ -38,6 +41,7 @@ import { PostsComponent } from './posts/posts.component';
     providers: [
         CoursesService,
         PostService,
+        FollowerService,
         { provide: ErrorHandler, useClass: GlobalErrorHandler }
     ],
     bootstrap: [AppComponent]
