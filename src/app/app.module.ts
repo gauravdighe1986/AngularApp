@@ -17,7 +17,11 @@ import { CoursesFormComponent } from './courses-form/courses-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { FollowersComponent } from './followers/followers.component';
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -29,14 +33,23 @@ import { FollowersComponent } from './followers/followers.component';
         CoursesFormComponent,
         SignupFormComponent,
         PostsComponent,
-        FollowersComponent
+        FollowersComponent,
+        NavbarComponent,
+        NotFoundComponent,
+        HomeComponent,
+        ProfileComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpModule
-
+        HttpModule,
+        RouterModule.forRoot([
+            { path: '', component: HomeComponent },
+            { path: 'followers', component: FollowersComponent },
+            { path: 'posts', component: PostsComponent },
+            { path: '**', component: NotFoundComponent }
+        ])
     ],
     providers: [
         CoursesService,
