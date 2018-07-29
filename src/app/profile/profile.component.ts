@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+    selector: 'app-profile',
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+    constructor(private route: ActivatedRoute) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.route.paramMap
+            .subscribe(params => {
+                let id = + params.get("id") // Converting String to int using +
+                console.log(id);
+            });
+    }
 
 }

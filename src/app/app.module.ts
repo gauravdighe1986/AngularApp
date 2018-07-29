@@ -46,6 +46,7 @@ import { ProfileComponent } from './profile/profile.component';
         HttpModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent },
+            { path: 'followers/:id', component: ProfileComponent },
             { path: 'followers', component: FollowersComponent },
             { path: 'posts', component: PostsComponent },
             { path: '**', component: NotFoundComponent }
